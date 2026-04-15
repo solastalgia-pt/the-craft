@@ -1,0 +1,223 @@
+/* ============================================================
+   THE COLLECTION — Cocktail Menu
+   ============================================================ */
+
+/* --- Google Fonts are loaded in index.html --- */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:          #090c0a;
+  --bg-card:     #0f1410;
+  --accent:      #4f9eff;
+  --accent-dim:  #1e4ea8;
+  --text:        #f2f2f2;
+  --text-muted:  #888888;
+  --rule:        #1c1c28;
+  --max-width:   680px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  min-height: 100vh;
+  padding: 0 1.5rem;
+  /* subtle noise texture via repeating pattern */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.site-header {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 5rem 0 3.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--rule);
+}
+
+.site-title {
+  font-family: 'Cormorant Garant', serif;
+  font-size: clamp(2.8rem, 8vw, 5rem);
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  line-height: 1.1;
+}
+
+.site-tagline {
+  margin-top: 1rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* decorative diamond divider */
+.divider-diamond {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.8rem auto 0;
+  max-width: 200px;
+}
+
+.divider-diamond::before,
+.divider-diamond::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--accent-dim);
+}
+
+.divider-diamond span {
+  color: var(--accent);
+  font-size: 0.5rem;
+  line-height: 1;
+  transform: rotate(45deg);
+  display: block;
+  width: 6px;
+  height: 6px;
+  border: 1px solid var(--accent);
+}
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-bottom: 5rem;
+}
+
+/* ============================================================
+   COCKTAIL CARD
+   ============================================================ */
+
+.cocktail {
+  padding: 3.5rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* Name */
+.cocktail-name {
+  font-family: 'Cormorant Garant', serif;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  line-height: 1.2;
+  margin-bottom: 0.6rem;
+}
+
+/* Optional description */
+.cocktail-description {
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.8rem;
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+/* Section label (INGREDIENTS / METHOD) */
+.section-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent-dim);
+  margin-bottom: 0.7rem;
+  margin-top: 1.8rem;
+}
+
+/* Ingredients list */
+.ingredients {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.ingredients li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.ingredients li::before {
+  content: '—';
+  color: var(--accent-dim);
+  flex-shrink: 0;
+}
+
+.amount {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  min-width: 3.4rem;
+  flex-shrink: 0;
+  font-size: 0.88rem;
+  letter-spacing: 0.03em;
+}
+
+/* Method & serve */
+.method {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.65;
+  max-width: 520px;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.site-footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2.5rem 0 3rem;
+  text-align: center;
+  color: var(--accent-dim);
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+}
+
+/* ============================================================
+   RESPONSIVE — mobile
+   ============================================================ */
+
+@media (max-width: 480px) {
+  body {
+    padding: 0 1.2rem;
+  }
+
+  .site-header {
+    padding: 3.5rem 0 2.5rem;
+  }
+
+  .cocktail {
+    padding: 2.8rem 0;
+  }
+
+  .amount {
+    min-width: 3rem;
+  }
+}
